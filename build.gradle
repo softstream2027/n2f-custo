@@ -1,0 +1,12 @@
+plugins {
+    id 'com.axelor.app'
+    id "com.github.node-gradle.node"
+}
+
+description = 'N2F Module'
+
+dependencies {
+implementation project(':modules:axelor-human-resource')
+}
+
+ 

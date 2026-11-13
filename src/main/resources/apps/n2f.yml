@@ -1,0 +1,13 @@
+---
+name: N2F
+code: n2f
+typeSelect: standard
+installOrder: 5000
+description: |
+   Note de frais
+image: app-expense.png
+modules: 
+   n2f-custo
+dependsOn:
+   - expense
+sequence: 200
