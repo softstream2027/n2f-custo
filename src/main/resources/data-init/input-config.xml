@@ -1,18 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<input-config xmlns="http://axelor.com/xml/ns/data-import"
-              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:schemaLocation="http://axelor.com/xml/ns/data-import http://axelor.com/xml/ns/data-import/data-import_8.0.xsd">
+<csv-inputs xmlns="http://axelor.com/xml/ns/data-import"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/data-import https://axelor.com/xml/ns/data-import/data-import_8.2.xsd">
 
-    <!-- 1. Importation des Rôles -->
-    <input file="auth_role.csv" type="com.axelor.auth.db.Role" search="self.name = :name" update="true"/>
+  <!-- 1. IMPORT DES RÔLES -->
+  <input file="auth_role.csv" separator=";" type="com.axelor.auth.db.Role" 
+         search="self.name = :name" update="true">
+    <bind column="name" to="name"/>
+    <bind column="description" to="description"/>
+  </input>
 
-    <!-- 2. Importation des Groupes (avec liaison aux rôles) -->
-    <input file="auth_group.csv" type="com.axelor.auth.db.Group"/>
+  <!-- 2. IMPORT DES GROUPES (liés aux rôles) -->
+  <input file="auth_group.csv" separator=";" type="com.axelor.auth.db.Group" 
+         search="self.code = :code" update="true">
+    <bind column="code" to="code"/>
+    <bind column="name" to="name"/>
+    <!-- Conversion des 'true'/'false' string en booléens Java -->
+    <bind column="technicalStaff" to="technicalStaff" eval="technicalStaff == 'true' ? true : false"/>
+    <bind column="isClient" to="isClient" eval="isClient == 'true' ? true : false"/>
+    <bind column="isSupplier" to="isSupplier" eval="isSupplier == 'true' ? true : false"/>
+    <!-- Liaison Many-to-One ou Many-to-Many vers le rôle -->
+    <bind column="roles.name" to="roles" search="self.name = :roles_name"/>
+  </input>
 
-    <!-- 3. Importation des Permissions (liées aux rôles) -->
-    <input file="auth_permission.csv" type="com.axelor.auth.db.Permission"/>
+  <!-- 3. IMPORT DES PERMISSIONS -->
+  <input file="auth_permission.csv" separator=";" type="com.axelor.auth.db.Permission" 
+         search="self.name = :name and self.role.name = :roleName" update="true">
+    <bind column="name" to="name"/>
+    <bind column="object" to="object"/>
+    <!-- Conversion des 'x' en booléens -->
+    <bind to="canRead" eval="can_read == 'x' ? true : false"/>
+    <bind to="canWrite" eval="can_write == 'x' ? true : false"/>
+    <bind to="canCreate" eval="can_create == 'x' ? true : false"/>
+    <bind to="canRemove" eval="can_remove == 'x' ? true : false"/>
+    <bind to="canExport" eval="can_export == 'x' ? true : false"/>
+    <!-- Liaison vers le rôle -->
+    <bind column="roleName" to="role" search="self.name = :roleName"/>
+  </input>
 
-    <!-- 4. Importation des Menus (liés aux rôles) -->
-    <input file="meta_metaMenu.csv" type="com.axelor.meta.db.MetaMenu"/>
+  <!-- 4. IMPORT DES MENUS -->
+  <input file="meta_metaMenu.csv" separator=";" type="com.axelor.meta.db.MetaMenu" 
+         search="self.name = :name" update="true">
+    <bind column="name" to="name"/>
+    <!-- Liaison Many-to-Many vers les rôles -->
+    <bind column="roles.name" to="roles" search="self.name = :roles_name"/>
+  </input>
 
-</input-config>
+</csv-inputs>
