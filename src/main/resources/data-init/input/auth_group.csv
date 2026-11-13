@@ -1,3 +1,3 @@
-"importId";"code";"name";"navigation";"technicalStaff";"isClient";"isSupplier";"roles"
-"1";"N2F";"Groupe N2F";"visible";"true";"false";"false";"n2f manager"
-"2";"role.mobile.n2f";"Groupe mobile N2F";"visible";"true";"false";"false";"n2f user"
+"code";"name";"navigation";"technicalStaff";"isClient";"isSupplier";"roles"
+"N2F";"Groupe N2F";"visible";"true";"false";"false";"n2f manager"
+"role.mobile.n2f";"Groupe mobile N2F";"visible";"true";"false";"false";"n2f user"
