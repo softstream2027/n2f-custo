@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
+
+  <!-- MyRH -->
+
+ <menuitem name="n2f-my-hr-dashboard"  title="Employee dashboard"
+    action="my.hr.dashboard.view" order="100" icon="person-vcard" icon-background="#84429f"/>
+
+  <menuitem name="n2f-all-expense"  title="Expenses" action="expense.all"
+    order="310" if="__config__.app.isApp('expense')" icon="list-task" icon-background="#84429f"/>
+
+  <!-- Expense app -->
+
+   <menuitem name="n2f-validate-expense" title="Expenses to Validate"
+    action="expense.validate" tag-style="default"
+    tag-get="com.axelor.apps.hr.web.expense.ExpenseController:expenseValidateMenuTag()" order="100"/>
+
+  <menuitem name="n2f-ventilate-expense"   title="Expenses to Ventilate"
+    action="expense.ventilate" tag-count="true" order="200"/>
+
+      <menuitem name="n2f-historic-expense"   title="Historic team Expenses"
+    action="expense.historic" order="400"/>
+
+</object-views>
