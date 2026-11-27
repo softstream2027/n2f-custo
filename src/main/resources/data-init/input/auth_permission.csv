@@ -51,3 +51,5 @@
 "perm.n2f.user.TSTimer";"com.axelor.apps.hr.db.TSTimer";"x";"x";"x";"x";"x";"self.employee.user.id = ?";"__user__.id"
 "perm.n2f.user.Employee";"com.axelor.apps.hr.db.Employee";"x";"";"";"";"";"self.user.id = ?";"__user__.id"
 "perm.n2f.User.rw.own";"com.axelor.auth.db.User";"x";"x";"";"";"";"self.id = ?";"__user__.id"
+"perm.n2f.manager.Company";"com.axelor.apps.base.db.Company";"x";"x";"";"";"";"self.id = ?";"__user__.activeCompany?.id"
+"perm.n2f.user.Company.r";"com.axelor.apps.base.db.Company";"x";"";"";"";"";"self.id = ?";"__user__.activeCompany?.id"
