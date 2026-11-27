@@ -14,6 +14,7 @@ import com.axelor.apps.hr.db.repo.KilometricAllowanceRateRepository;
 import com.axelor.apps.hr.exception.HumanResourceExceptionMessage;
 import com.axelor.apps.hr.service.config.HRConfigService;
 import com.axelor.apps.hr.service.expense.ExpenseComputationService;
+import com.axelor.apps.hr.service.expense.ExpenseLineComputeService;
 import com.axelor.common.ObjectUtils;
 import com.axelor.i18n.I18n;
 import com.google.inject.Inject;
@@ -25,8 +26,7 @@ import java.util.Collections;
 import java.util.List;
 import com.axelor.apps.hr.service.KilometricExpenseServiceImpl;
 import com.axelor.apps.hr.service.KilometricLogService;
-
-
+ 
 public class NdfKilometricExpenseServiceImpl extends KilometricExpenseServiceImpl {
 
   @Inject
@@ -34,11 +34,11 @@ public class NdfKilometricExpenseServiceImpl extends KilometricExpenseServiceImp
       KilometricLogService kilometricLogService,
       KilometricAllowanceRateRepository kilometricAllowanceRateRepository,
       HRConfigService hrConfigService,
-      ExpenseComputationService expenseComputationService) {
+      ExpenseComputationService expenseComputationService,ExpenseLineComputeService expenseLineComputeService) {
     super(  kilometricLogService,
         kilometricAllowanceRateRepository,
         hrConfigService,
-        expenseComputationService);
+        expenseComputationService,expenseLineComputeService);
   }
 
   @Override
