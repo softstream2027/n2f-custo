@@ -5,13 +5,13 @@
  
   <form name="ndf-company-form" title="Company" model="com.axelor.apps.base.db.Company"
       canNew="false" canDelete="false" >
-     
+      <panel name="mainPanel">
     <field name="name" readonly="true" />
 
       <field name="currency" canEdit="false" form-view="currency-form"  grid-view="currency-grid"/>
 
       <field name="maxAmount"/>
-
+ </panel>
   </form>
 
  
