@@ -25,7 +25,14 @@
       
         <menuitem name="n2f-product-root-service"  title="Products.services" action="product.root.service" order="500"/>
     
-      <menuitem name="n2f-admin-root-user-company"   title="Companies"   action="admin.root.base.company" order="600"/>
+      <menuitem name="n2f-admin-root-user-company"   title="Companies"   action="n2f-admin.root.base.company" order="600"/>
     
+
+ <action-view name="n2f-admin.root.base.company" title="Companies"  model="com.axelor.apps.base.db.Company"> 
+    <view type="form" name="ndf-company-form"/>
+    <view-param name="search-filters" value="company-filters"/>
+    <context name="_showRecord" expr="eval:__repo__(Company).all().fetchOne()?.getId()"  if="!__config__.app.getApp('base')?.getEnableMultiCompany()"/>
+    <context name="_canNew"  expr="eval:false"/>
+  </action-view>
 
 </object-views>
