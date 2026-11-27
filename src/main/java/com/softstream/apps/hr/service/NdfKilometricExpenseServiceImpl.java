@@ -14,7 +14,7 @@ import com.axelor.apps.hr.db.repo.KilometricAllowanceRateRepository;
 import com.axelor.apps.hr.exception.HumanResourceExceptionMessage;
 import com.axelor.apps.hr.service.config.HRConfigService;
 import com.axelor.apps.hr.service.expense.ExpenseComputationService;
-import com.axelor.apps.hr.service.expense.ExpenseLineComputeService;
+import com.axelor.apps.hr.service.expense.expenseline.ExpenseLineComputeService;
 import com.axelor.common.ObjectUtils;
 import com.axelor.i18n.I18n;
 import com.google.inject.Inject;
