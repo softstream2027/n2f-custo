@@ -29,6 +29,7 @@
     
 
  <action-view name="n2f-admin.root.base.company" title="Companies"  model="com.axelor.apps.base.db.Company"> 
+ <view type="grid" name="ndf-company-grid"   if="__config__.app.getApp('base')?.getEnableMultiCompany()"/>
     <view type="form" name="ndf-company-form"/>
     <view-param name="search-filters" value="company-filters"/>
     <context name="_showRecord" expr="eval:__repo__(Company).all().fetchOne()?.getId()"  if="!__config__.app.getApp('base')?.getEnableMultiCompany()"/>

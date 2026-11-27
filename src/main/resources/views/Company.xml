@@ -14,5 +14,13 @@
  </panel>
   </form>
 
+
+  <grid name="ndf-company-grid" title="Companies" model="com.axelor.apps.base.db.Company">
+    <field name="name"/>
+    <field name="currency" canEdit="false" form-view="currency-form"  grid-view="currency-grid"/>
+
+      <field name="maxAmount"/>
+  </grid>
+
  
 </object-views>
