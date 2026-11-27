@@ -5,11 +5,9 @@
 
   <!-- MyRH -->
 
- <menuitem name="n2f-my-hr-dashboard"  title="Employee dashboard"
-    action="my.hr.dashboard.view" order="100" icon="person-vcard" icon-background="#84429f"/>
-
+ 
   <menuitem name="n2f-all-expense"  title="Expenses" action="expense.all"
-    order="310" if="__config__.app.isApp('expense')" icon="list-task" icon-background="#84429f"/>
+    order="10" if="__config__.app.isApp('expense')" icon="list-task" icon-background="#84429f"/>
 
   <!-- Expense app -->
 
@@ -21,6 +19,13 @@
     action="expense.ventilate" tag-count="true" order="200"/>
 
       <menuitem name="n2f-historic-expense"   title="Historic team Expenses"
-    action="expense.historic" order="400"/>
+    action="expense.historic" order="300"/>
+    
+      <menuitem name="n2f-admin-root-user-user"  title="Users"  action="action-auth-users" order="400"/>
+      
+        <menuitem name="n2f-product-root-service"  title="Products.services" action="product.root.service" order="500"/>
+    
+      <menuitem name="n2f-admin-root-user-company"   title="Companies"   action="admin.root.base.company" order="600"/>
+    
 
 </object-views>
