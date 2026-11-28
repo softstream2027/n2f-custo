@@ -42,7 +42,8 @@
     <view type="form" name="ndf-product-form"/>
     <view-param name="limit" value="39"/>
     <view-param name="search-filters" value="products-filters"/>
-    <domain>self.isModel = :_isModel AND self.productTypeSelect = :_productTypeSelect AND self.dtype = 'Product' AND self.productFamily = :_productFamily</domain>
+    <domain>self.company = :activeCompany AND self.isModel = :_isModel AND self.productTypeSelect = :_productTypeSelect AND self.dtype = 'Product' AND self.productFamily = :_productFamily</domain>
+    <context name="activeCompany" expr="eval: __user__.activeCompany"/>
     <context name="_isModel" expr="false"/>
     <context name="_productTypeSelect" expr="service"/>
      <context name="_productFamily" expr="eval:__repo__(ProductFamily).all().filter('id = ?1',6).fetchOne()"/>
