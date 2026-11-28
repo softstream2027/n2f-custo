@@ -71,7 +71,7 @@
   <action-record name="ndf-action-group-base-product-onnew"     model="com.axelor.apps.base.db.Product">
 
     <field name="productFamily" expr="eval: _productFamily"/>
-    <field name="productCategory" expr="eval: 13"/>
+    <field name="productCategory" expr="eval: _productCategory"/>
      <field name="activeCompany" expr="eval:__user__.activeCompany"   if="__user__.activeCompany != null"/>
 
   </action-record>

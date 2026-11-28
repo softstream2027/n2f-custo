@@ -47,6 +47,8 @@
     <context name="_isModel" expr="false"/>
     <context name="_productTypeSelect" expr="service"/>
      <context name="_productFamily" expr="eval:__repo__(ProductFamily).all().filter('id = ?1',6).fetchOne()"/>
+     <context name="_productCategory" expr="eval:__repo__(ProductCategory).all().filter('id = ?1',13).fetchOne()"/>
+     
   </action-view>
 
     
