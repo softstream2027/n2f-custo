@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<object-views xmlns="http://axelor.com/xml/ns/object-views"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://axelor.com/xml/ns/object-views http://axelor.com/xml/ns/object-views/object-views_7.4.xsd">
+
+  <grid name="ndf-user-grid" title="Users list" model="com.axelor.auth.db.User"  >
+    <field name="name" readonly="true" />
+    <field name="code" readonly="true"  />
+    <field name="activeCompany" readonly="true"  />
+    <field name="blocked"/>
+    <field name="activateOn" readonly="true"  />
+    <field name="expiresOn" readonly="true"  />
+  </grid>
+ 
+   <form name="ndf-user-form"   title="User" model="com.axelor.auth.db.User" canNew="false" canDelete="false" >
+      <panel name="mainPanel">
+     <field name="name" readonly="true" />
+    <field name="code" readonly="true"  />
+    <field name="activeCompany" readonly="true"  />
+    <field name="blocked"/>
+    <field name="activateOn" readonly="true"  />
+    <field name="expiresOn" readonly="true"  />
+ </panel>
+  </form>
+
+
+
+</object-views>

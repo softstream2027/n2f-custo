@@ -21,13 +21,39 @@
       <menuitem name="n2f-historic-expense"   title="Historic team Expenses"
     action="expense.historic" order="300"/>
     
-      <menuitem name="n2f-admin-root-user-user"  title="Users"  action="action-auth-users" order="400"/>
+      <menuitem name="n2f-admin-root-user-user"  title="Users"  action="n2f-action-auth-users" order="400"/>
+
+  <action-view  name="n2f-action-auth-users" title="Users"     model="com.axelor.auth.db.User">
+    <view type="grid" name="ndf-user-grid"/>
+    <view type="form" name="ndf-user-form"/>
+    <view-param name="search-filters" value="user-filters"/>
+    <context name="_today" expr="eval: __config__.date"/>
+    <context name="_showRecord" expr="eval: userId" if="userId"/>
+  </action-view>
+
+
       
-        <menuitem name="n2f-product-root-service"  title="Products.services" action="product.root.service" order="500"/>
-    
-      <menuitem name="n2f-admin-root-user-company"   title="Companies"   action="n2f-admin.root.base.company" order="600"/>
+ 
+          <menuitem name="n2f-product-root-service"   title="Products.services" action="n2f-product.root.service" order="500"/>
+
+  <action-view name="n2f-product.root.service" title="Products.services"
+    model="com.axelor.apps.base.db.Product"> 
+    <view type="grid" name="ndf-product-grid"/>
+    <view type="form" name="ndf-product-form"/>
+    <view-param name="limit" value="39"/>
+    <view-param name="search-filters" value="products-filters"/>
+    <domain>self.isModel = :_isModel AND self.productTypeSelect = :_productTypeSelect AND self.dtype
+      = 'Product'</domain>
+    <context name="_isModel" expr="false"/>
+    <context name="_productTypeSelect" expr="service"/>
+  </action-view>
+
     
 
+
+
+      <menuitem name="n2f-admin-root-user-company"   title="Companies"   action="n2f-admin.root.base.company" order="600"/>
+    
  <action-view name="n2f-admin.root.base.company" title="Companies"  model="com.axelor.apps.base.db.Company"> 
  <view type="grid" name="ndf-company-grid"   if="__config__.app.getApp('base')?.getEnableMultiCompany()"/>
     <view type="form" name="ndf-company-form"/>
