@@ -49,7 +49,7 @@
             form-view="product-family-form" grid-view="product-family-grid"/> 
         </panel>
     
-         <field name="Company" readonly="true"  />
+         <field name="activeCompany" readonly="true"  />
       </panel>
     </panel>
   </form>
@@ -64,7 +64,7 @@
   <field name="productFamily" form-view="product-family-form"
       grid-view="product-family-grid"/>
     <field name="productTypeSelect" width="100"/>
-     <field name="Company" readonly="true"  />
+     <field name="activeCompany" readonly="true"  />
   </grid>
 
 
@@ -72,7 +72,8 @@
 
     <field name="productFamily" expr="eval: _productFamily"/>
     <field name="productCategory" expr="eval: 13"/>
- 
+     <field name="activeCompany" expr="eval:__user__.activeCompany"   if="__user__.activeCompany != null"/>
+
   </action-record>
 
 

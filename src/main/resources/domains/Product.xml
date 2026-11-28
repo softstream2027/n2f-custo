@@ -7,7 +7,7 @@
 
   <entity name="Product">
 
-   <many-to-one name="company" ref="com.axelor.apps.base.db.Company" title="Company"   />
+   <many-to-one name="activeCompany" ref="com.axelor.apps.base.db.Company" title="Company"   />
     
 </entity>
 
