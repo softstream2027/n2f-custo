@@ -27,6 +27,9 @@
     <view type="grid" name="ndf-user-grid"/>
     <view type="form" name="ndf-user-form"/>
     <view-param name="search-filters" value="user-filters"/>
+      
+        <domain>self.activeCompany = :activeCompany  </domain>
+<context name="activeCompany" expr="eval: __user__.activeCompany"/>
     <context name="_today" expr="eval: __config__.date"/>
     <context name="_showRecord" expr="eval: userId" if="userId"/>
   </action-view>
