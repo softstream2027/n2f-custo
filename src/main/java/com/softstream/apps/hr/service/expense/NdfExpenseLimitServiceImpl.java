@@ -33,9 +33,16 @@ public class NdfExpenseLimitServiceImpl extends ExpenseLimitServiceImpl {
   @Transactional(rollbackOn = {Exception.class})
   @Override
   public void checkExpenseLimit(Expense expense) throws AxelorException {
-     super.checkExpenseLimit(expense);
-    
-    BigDecimal maxAmount = expense.getCompany().getMaxAmount();
+
+    List<ExpenseLimit> expenseLimitList =
+        expenseLimitRepository
+            .all()
+            .filter("self.employee = :employee")
+            .bind("employee", expense.getEmployee())
+            .fetch();
+    if (CollectionUtils.isEmpty(expenseLimitList)) {
+
+      BigDecimal maxAmount = expense.getCompany().getMaxAmount();
 
     Period period = expense.getPeriod();
 
@@ -53,6 +60,10 @@ public class NdfExpenseLimitServiceImpl extends ExpenseLimitServiceImpl {
                 dateFormat.format(toDate)));
     }
 
+    }
+    
+    else 
+    super.checkExpenseLimit(expense);
   }
  
  
