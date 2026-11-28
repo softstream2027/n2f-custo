@@ -68,4 +68,8 @@
     <context name="_canNew"  expr="eval:false"/>
   </action-view>
 
+
+  <menuitem name="n2f-admin-root-general-currency"    title="Currencies" action="admin.root.general.currency" order="700"/>
+
+
 </object-views>
